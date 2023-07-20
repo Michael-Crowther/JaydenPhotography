@@ -1,0 +1,179 @@
+.body, html{
+  background-color: #222121;
+  height: 100%;
+  cursor: url(../images/cursor-image.png) auto;
+}
+
+/*Navbar Styling*/
+
+#Top{
+  padding: 10px;
+  padding-top: 50px;
+  margin: 0;
+  top: 0;
+  padding-bottom: 48px;
+  position: sticky;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.logo{
+  float: left;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  margin-left: 180px;
+}
+
+nav ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  text-align: right;
+  font-size: 20px;
+  margin-right: 180px;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-left: 60px;
+}
+
+nav ul li a {
+  display: block;
+  padding: 15px 10px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+nav ul li a:not(.stickyNavBarText):hover {/*Don't do while in sticky navbar*/
+  color: #fff; /* Set your desired text color */
+}
+nav ul li a:hover {/*Always do*/
+  border-bottom: 2px solid rgba(255, 108, 137, 0.816);
+  border-bottom-width: 5px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  padding-bottom: 2px;
+}
+
+.stickyTop{
+  background-color: rgba(255, 255, 255, 0.952);
+  animation: stickyFadeIn 0.3s ease-in;
+}
+.stickyFadeOut{
+  animation: stickyFadeOut 0.3s ease-out;
+}
+.stickyLogo, .stickyNavBarText{
+  color: black;
+}
+
+
+
+/*Home Page Styling*/
+
+.homeHeader{
+  color:white;
+  font-size: 170px;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  margin-top: 230px;
+
+  background-image: url(../images/background-text-image.jpg);
+  background-size: cover;
+  
+  background-position: center;
+  background-repeat: no-repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+
+  animation: fadeInHeader 1.3s ease-in;
+}
+
+.homeSubHeader{
+  color:white;
+  font-size: 55px;
+  text-align: center;
+  animation: fadeInSubHeader 1.3s ease-in;
+}
+
+/*About Section Styling*/
+
+.aboutHeader, .aboutParagraph{
+  text-align: center;
+  color: white;
+}
+.aboutHeader{
+  margin-top: 230px;
+  font-size: 50px;
+}
+.aboutParagraph{
+  font-size: 40px;
+  margin-right: 500px;
+  margin-left: 500px;
+  padding-bottom: 50px;
+}
+
+
+
+/*Animations*/
+
+@keyframes fadeInHeader{
+  from{
+    opacity: 0;
+  }
+
+  to{
+    opcaity: 100%;
+  }
+}
+
+@keyframes fadeInSubHeader{
+  0%{
+    opacity: 0;
+    padding-top: 20px;
+  }
+
+  50%{
+    opacity: 0;
+    padding: 10px;
+  }
+
+  100%{
+    opacity: 100%;
+    padding: 0;
+  }
+}
+
+@keyframes stickyFadeIn{
+  from{
+    opacity: 0;
+  }
+  
+  to{
+    opcaity: 100%;
+  }
+}
+@keyframes stickyFadeOut{
+  from{
+    opcaity: 100%;
+    background-color: white;
+  }
+  
+  to{
+    opcaity: 0;
+    background-color: #222121;
+  }
+}
+
+
+
+
+
+

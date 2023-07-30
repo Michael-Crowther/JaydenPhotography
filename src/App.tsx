@@ -1,7 +1,8 @@
 import './App.css';
 import React, { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
+
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
     const logo = document.getElementById('logo') as HTMLElement;
     const navbarTextElements = document.getElementsByClassName('navbarText') as HTMLCollectionOf<HTMLElement>;
     const icon = document.getElementById('icon') as HTMLElement;
+    const xIcon = document.getElementById('iconX') as HTMLElement;
 
     const navbarTextArray = Array.from(navbarTextElements); // Convert HTMLCollection to an array
 
@@ -22,6 +24,7 @@ function App() {
         header.classList.add("stickyTop");
         logo.classList.add("stickyLogo");
         icon.classList.add("stickyLogo");
+        xIcon.classList.add("stickyLogo");
         header.classList.remove("stickyFadeOut");
         navbarTextArray.forEach((element) => {//Gets all text elements in navbar
           element.classList.add('stickyNavBarText');
@@ -35,6 +38,7 @@ function App() {
             header.classList.remove("stickyTop");
             logo.classList.remove("stickyLogo");
             icon.classList.remove("stickyLogo");
+            xIcon.classList.remove("stickyLogo");
             navbarTextArray.forEach((element) => {
               element.classList.remove('stickyNavBarText');
             });   
@@ -68,30 +72,31 @@ function App() {
 
   const handleMobileNavbarClick = () => {
     const x = document.getElementById("myLinks") as HTMLElement;
-  
-    // Check if the element is visible
-    const isVisible = x.classList.contains("visible");
-  
-    // Toggle the visibility of the element
-    if (isVisible) {
-      // If it's currently visible, hide it
-      x.classList.remove("visible");
-      x.classList.add("hidden");
-    } else {
-      // If it's currently hidden, show it
-      x.classList.remove("hidden");
-      x.classList.add("visible");
-    }
+    const hamburgerIcon = document.getElementById("icon");
+    const xIcon = document.getElementById("iconX");
+
+
+    // Toggle the visibility of 'x' element
+    x.classList.toggle("visible");
+    x.classList.toggle("hidden");
+
+    // Toggle the visibility of 'hamburgerIcon' element
+    hamburgerIcon?.classList.toggle("visible");
+    hamburgerIcon?.classList.toggle("hidden");
+
+    xIcon?.classList.toggle("visible");
+    xIcon?.classList.toggle("hidden");
   };
 
   return (
-    <div className="App">
+    <div className="App" id="linkTop">
       <header id="Top">
         <div className="logo" id="logo">Jayden Crowther</div>
         <nav className="navbar" id="navbar">
           <FontAwesomeIcon icon={faBars} id="icon" className="icon" onClick={handleMobileNavbarClick} />
+          <FontAwesomeIcon icon={faXmark} id="iconX" className="iconX hidden" onClick={handleMobileNavbarClick} />
           <ul id="myLinks">
-            <li><a className="navbarText" href="#Top">Home</a></li>
+            <li><a className="navbarText" href="#linkTop">Home</a></li>
             <li><a className="navbarText" href="#About">About</a></li>
             <li><a className="navbarText" href="#Gallery">Gallery</a></li>
             <li><a className="navbarText" href="#Shop">Shop</a></li>
@@ -99,6 +104,7 @@ function App() {
           </ul>
         </nav>
       </header>
+
 
       <section id="Home">
         <h1 className="homeHeader">Photography</h1>

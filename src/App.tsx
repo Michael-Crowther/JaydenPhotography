@@ -32,7 +32,7 @@ function App() {
 
       } 
       else {
-        if (scrollPosition <= threshold && scrollPosition == 0) {
+        if (scrollPosition <= threshold && scrollPosition === 0) {
           header.classList.add("stickyFadeOut");
           setTimeout(() => {//Wait for fadeOut animtation to end
             header.classList.remove("stickyTop");

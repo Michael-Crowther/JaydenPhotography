@@ -96,11 +96,11 @@ function App() {
           <FontAwesomeIcon icon={faBars} id="icon" className="icon" onClick={handleMobileNavbarClick} />
           <FontAwesomeIcon icon={faXmark} id="iconX" className="iconX hidden" onClick={handleMobileNavbarClick} />
           <ul id="myLinks">
-            <li><a className="navbarText" href="#linkTop">Home</a></li>
-            <li><a className="navbarText" href="#About">About</a></li>
-            <li><a className="navbarText" href="#Gallery">Gallery</a></li>
-            <li><a className="navbarText" href="#Shop">Shop</a></li>
-            <li><a className="navbarText" href="#Contact">Contact</a></li>
+            <li><a className="navbarText" href="#linkTop" onClick={handleMobileNavbarClick}>Home</a></li>
+            <li><a className="navbarText" href="#About" onClick={handleMobileNavbarClick}>About</a></li>
+            <li><a className="navbarText" href="#Gallery" onClick={handleMobileNavbarClick}>Gallery</a></li>
+            <li><a className="navbarText" href="#Shop" onClick={handleMobileNavbarClick}>Shop</a></li>
+            <li><a className="navbarText" href="#Contact" onClick={handleMobileNavbarClick}>Contact</a></li>
           </ul>
         </nav>
       </header>

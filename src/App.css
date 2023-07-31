@@ -163,14 +163,13 @@ nav ul li a:hover {
   color: white;
 }
 .aboutHeader{
-  margin-top: 230px;
+  margin-top: 210px;
   font-size: 50px;
 }
 .aboutParagraph{
-  font-size: 40px;
-  margin-right: 500px;
-  margin-left: 500px;
+  font-size: 35px;
   padding-bottom: 50px;
+  margin: 50px;
 }
 
 
@@ -225,14 +224,13 @@ nav ul li a:hover {
   }
 }
 
-
+/*Media Queries*/
 @media (min-width: 1400px) {
   .iconX{
     display: none;
   }
 }
 
-/* Media Queries */
 @media (max-width: 1400px) {
   nav {
     overflow: hidden;
@@ -253,7 +251,7 @@ nav ul li a:hover {
   }
 
   nav ul li{
-    width: 100px;
+    width: 70px;
     text-align: center;
   }
 
@@ -262,8 +260,233 @@ nav ul li a:hover {
   }
 }
 
+@media (max-width: 1100px) {
+  .homeHeader{
+    font-size: 110px;
+  }
+  .homeSubHeader{
+    font-size: 40px;
+  }
+  .logo{
+    font-size: 35px;
+    margin-left: 110px;
+  }
+  .icon{
+    margin-right: 120px;
+  }
+  .aboutHeader{
+    margin-top: 170px;
+    font-size: 43px;
+  }
+  .aboutParagraph{
+    font-size: 30px;
+  }
+}
 
+/*iPad Air*/
+@media (max-width: 821px) {
+  .aboutHeader{
+    margin-top: 350px;
+    font-size: 50px;
+  }
+  .aboutParagraph{
+    font-size: 35px;
+  }
+  .homeHeader{
+    margin-top: 340px;
+  }
+  .logo{
+    font-size: 45px;
+  }
+  .icon{
+    width: 50px;
+    height: 50px;
+  }
+  nav ul li a{
+    font-size: 26px;
+  }
+  #iconX{
+    margin-right: 50px;
+  }
+  .logo{
+    margin-left: 60px;
+  }
+  .icon{
+    margin-right: 80px;
+  }
+}
 
+/*iPad Mini*/
+@media (max-width: 769px) {
+  .aboutHeader{
+    margin-top: 280px;
+    font-size: 24px;
+  }
+  .homeHeader{
+    margin-top: 260px;
+  }
+  .aboutHeader{
+    font-size: 45px;
+  }
+  .logo{
+    margin-left: 60px;
+  }
+  .icon{
+    margin-right: 80px;
+  }
+}
 
+@media (max-width: 740px) {
+  .homeHeader{
+    font-size: 80px;
 
+  }
+  .homeSubHeader{
+    font-size: 30px;
+  }
+  .logo{
+    font-size: 25px;
+    margin-left: 90px;
+  }
+  .icon{
+    margin-right: 80px;
+    width: 30px;
+    height: 30px;
+  }
+  .aboutHeader{
+    margin-top: 170px;
+    font-size: 35px;
+  }
+  .aboutParagraph{
+    font-size: 25px;
+  }
+  .homeHeader{
+    margin-top: 100px;
+  }
+  nav ul li a{
+    font-size: 15px;
+  }
+}
 
+@media (max-width: 512px) {
+  .homeHeader{
+    font-size: 60px;
+
+  }
+  .homeSubHeader{
+    font-size: 20px;
+  }
+  .logo{
+    font-size: 25px;
+    margin-left: 40px;
+  }
+  .icon{
+    margin-right: 40px;
+    width: 30px;
+    height: 30px;
+  }
+  .aboutHeader{
+    margin-top: 200px;
+    font-size: 26px;
+  }
+  .aboutParagraph{
+    font-size: 23px;
+  }
+  #myLinks{
+    margin-left: 50px;
+  }
+  .homeHeader{
+    margin-top: 120px;
+  }
+  nav ul li a{
+    font-size: 15px;
+  }
+}
+
+/*iPhone XR*/
+@media (max-width: 415px) {
+  .homeSubHeader{
+    font-size: 25px;
+  }
+  .aboutHeader{
+    margin-top: 280px;
+    font-size: 24px;
+  }
+  .homeHeader{
+    margin-top: 270px;
+  }
+  #myLinks{
+    margin-left: 20px;
+  }
+  #iconX{
+    margin-right: 20px;
+  }
+}
+
+/*iPhone 12 Pro*/
+@media (max-width: 391px) {
+  .aboutHeader{
+    margin-top: 260px;
+    font-size: 24px;
+  }
+  .homeHeader{
+    margin-top: 250px;
+  }
+  #myLinks{
+    margin-left: 10px;
+  }
+}
+
+/*iPhone SE*/
+@media (max-width: 376px) {
+  .homeHeader{
+    font-size: 45px;
+
+  }
+  .homeSubHeader{
+    font-size: 20px;
+  }
+  .logo{
+    font-size: 20px;
+    margin-left: 30px;
+  }
+  .icon{
+    margin-right: 30px;
+    width: 26px;
+    height: 26px;
+  }
+  #iconX{
+    margin-right: 30px;
+  }
+  #iconX{
+    width: 26px;
+    height: 26px;
+  }
+  .aboutHeader{
+    margin-top: 230px;
+    font-size: 24px;
+  }
+  .aboutParagraph{
+    font-size: 21px;
+  }
+  #myLinks{
+    margin-left: 10px;
+  }
+  .homeHeader{
+    margin-top: 150px;
+  }
+  nav ul li a{
+    font-size: 15px;
+  }
+}
+
+/*Samsung Galaxy S8+*/
+@media (max-width: 361px) {
+  .aboutHeader{
+    margin-top: 220px;
+    font-size: 24px;
+  }
+  .homeHeader{
+    margin-top: 220px;
+  }
+}

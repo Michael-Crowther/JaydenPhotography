@@ -1,11 +1,27 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import img1 from "./images/img1.jpg";
+import img2 from "./images/img2.jpg";
+import img3 from "./images/img3.jpg";
+import img4 from "./images/img4.jpg";
+import img5 from "./images/img5.jpg";
+import img6 from "./images/img6.jpg";
+import img7 from "./images/img7.jpg";
+import img8 from "./images/img8.jpg";
+import img9 from "./images/img9.jpg";
+import img10 from "./images/img10.jpg";
+import img11 from "./images/img11.jpg";
+import img12 from "./images/img12.jpg";
 
+
+const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12]
 
 function App() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   //UseEffect hook for checking if user scrolls. Change navbar if user scrolls
   useEffect(() => {
@@ -113,7 +129,6 @@ function App() {
     }
   }, []);
 
-
   const handleMobileNavbarClick = () => {
     setIsMobileNavOpen(!isMobileNavOpen);
 
@@ -131,6 +146,14 @@ function App() {
         hamburgerIcon?.classList.add("hidden");
       }, 300);
     }   
+  };
+
+  const goToLeftImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+  }
+
+  const goToRightImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
   };
 
   return (
@@ -170,7 +193,11 @@ function App() {
       </section>
 
       <section id="Gallery">
-
+        <div className="image-container">
+          <FontAwesomeIcon icon={faArrowLeft} className="arrow left-arrow" onClick={goToLeftImage} />
+          <img src={images[currentImageIndex]} alt="gallery" className="gallery-image" />
+          <FontAwesomeIcon icon={faArrowRight} className="arrow right-arrow" onClick={goToRightImage} />
+        </div>
       </section>
 
       <section id="Shop">

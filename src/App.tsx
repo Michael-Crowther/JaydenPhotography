@@ -1,10 +1,11 @@
 import './App.css';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 
 function App() {
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   //UseEffect hook for checking if user scrolls. Change navbar if user scrolls
   useEffect(() => {
@@ -12,7 +13,6 @@ function App() {
     const logo = document.getElementById('logo') as HTMLElement;
     const navbarTextElements = document.getElementsByClassName('navbarText') as HTMLCollectionOf<HTMLElement>;
     const icon = document.getElementById('icon') as HTMLElement;
-    const xIcon = document.getElementById('iconX') as HTMLElement;
 
     const navbarTextArray = Array.from(navbarTextElements); // Convert HTMLCollection to an array
 
@@ -24,7 +24,6 @@ function App() {
         header.classList.add("stickyTop");
         logo.classList.add("stickyLogo");
         icon.classList.add("stickyLogo");
-        xIcon.classList.add("stickyLogo");
         header.classList.remove("stickyFadeOut");
         navbarTextArray.forEach((element) => {//Gets all text elements in navbar
           element.classList.add('stickyNavBarText');
@@ -38,7 +37,6 @@ function App() {
             header.classList.remove("stickyTop");
             logo.classList.remove("stickyLogo");
             icon.classList.remove("stickyLogo");
-            xIcon.classList.remove("stickyLogo");
             navbarTextArray.forEach((element) => {
               element.classList.remove('stickyNavBarText');
             });   
@@ -69,23 +67,70 @@ function App() {
     };
   }, []);
 
+  //This effect will prevent having both nav bars showing
+  useEffect(() => {
+
+    const hamburgerIcon = document.getElementById("icon");
+
+    function handleResize(){
+      
+      if(window.innerWidth >= 1400){
+        setIsMobileNavOpen(false);
+        hamburgerIcon?.classList.remove("visible");
+      }
+      else if(hamburgerIcon?.classList.contains("hidden")){
+        setIsMobileNavOpen(true);
+      }
+      
+    }
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [isMobileNavOpen]);
+
+  //This effect checks if the user clicks anywhere outside of the mobile nav bar
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent){
+      const targetElement = event.target as Element;
+      const hamburgerIcon = document.getElementById("icon");
+
+      //Close navbar and make bars visible if the user clicks a class outside
+      //of the mobileLinks and if the mobile navbar is visible
+      if(!targetElement.closest("#mobileLinks") && hamburgerIcon?.classList.contains("hidden")){
+        setIsMobileNavOpen(false);
+        hamburgerIcon.classList.toggle("hidden");
+      }
+      
+    }
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    }
+  }, []);
+
 
   const handleMobileNavbarClick = () => {
-    const x = document.getElementById("myLinks") as HTMLElement;
+    setIsMobileNavOpen(!isMobileNavOpen);
+
     const hamburgerIcon = document.getElementById("icon");
-    const xIcon = document.getElementById("iconX");
 
-
-    // Toggle the visibility of 'x' element
-    x.classList.toggle("visible");
-    x.classList.toggle("hidden");
-
-    // Toggle the visibility of 'hamburgerIcon' element
-    hamburgerIcon?.classList.toggle("visible");
-    hamburgerIcon?.classList.toggle("hidden");
-
-    xIcon?.classList.toggle("visible");
-    xIcon?.classList.toggle("hidden");
+    if(hamburgerIcon?.classList.contains("hidden")){
+      //If hidden, make it visible instantly
+      hamburgerIcon.classList.remove("hidden");
+      hamburgerIcon.classList.add("visible");
+    }
+    else{
+      //If visible, hide after a delay
+      hamburgerIcon?.classList.remove("visible");
+      setTimeout(() => {
+        hamburgerIcon?.classList.add("hidden");
+      }, 300);
+    }   
   };
 
   return (
@@ -94,16 +139,24 @@ function App() {
         <div className="logo" id="logo">Jayden Crowther</div>
         <nav className="navbar" id="navbar">
           <FontAwesomeIcon icon={faBars} id="icon" className="icon" onClick={handleMobileNavbarClick} />
-          <FontAwesomeIcon icon={faXmark} id="iconX" className="iconX hidden" onClick={handleMobileNavbarClick} />
           <ul id="myLinks">
-            <li><a className="navbarText" href="#linkTop" onClick={handleMobileNavbarClick}>Home</a></li>
-            <li><a className="navbarText" href="#About" onClick={handleMobileNavbarClick}>About</a></li>
-            <li><a className="navbarText" href="#Gallery" onClick={handleMobileNavbarClick}>Gallery</a></li>
-            <li><a className="navbarText" href="#Shop" onClick={handleMobileNavbarClick}>Shop</a></li>
-            <li><a className="navbarText" href="#Contact" onClick={handleMobileNavbarClick}>Contact</a></li>
+            <li><a className="navbarText" href="#linkTop">Home</a></li>
+            <li><a className="navbarText" href="#About">About</a></li>
+            <li><a className="navbarText" href="#Gallery">Gallery</a></li>
+            <li><a className="navbarText" href="#Shop">Shop</a></li>
+            <li><a className="navbarText" href="#Contact">Contact</a></li>
           </ul>
         </nav>
       </header>
+
+      <ul id="mobileLinks" className={isMobileNavOpen ? 'open' : ''}>
+        <li><a className="navbarText" href="#linkTop" onClick={handleMobileNavbarClick}>Home</a></li>
+        <li><a className="navbarText" href="#About" onClick={handleMobileNavbarClick}>About</a></li>
+        <li><a className="navbarText" href="#Gallery" onClick={handleMobileNavbarClick}>Gallery</a></li>
+        <li><a className="navbarText" href="#Shop" onClick={handleMobileNavbarClick}>Shop</a></li>
+        <li><a className="navbarText" href="#Contact" onClick={handleMobileNavbarClick}>Contact</a></li>
+        <FontAwesomeIcon icon={faBars} id="mobileIcon" onClick={handleMobileNavbarClick} />
+      </ul>
 
 
       <section id="Home">

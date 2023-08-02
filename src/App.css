@@ -99,7 +99,7 @@ nav ul li a:hover, #mobileLinks li a:hover {
 /*Mobile Navbar*/
 #mobileLinks{
   position: fixed;
-  right: -400px; /* Adjust this value to match the width you desire */
+  right: -800px; /* Adjust this value to match the width you desire */
   top: 0;
   width: 25%; /* You can adjust the width as needed */
   height: 100%;
@@ -123,7 +123,7 @@ nav ul li a:hover, #mobileLinks li a:hover {
   text-decoration: none;
 }
 #mobileLinks.open {
-  right: 0;
+  right: 0 !important;
 }
 
 .stickyTop{
@@ -143,17 +143,22 @@ nav ul li a:hover, #mobileLinks li a:hover {
 
 /*Home Page Styling*/
 
+#Home{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 75vh;
+  text-align: center;
+}
+
 .homeHeader{
   color:white;
   font-size: 170px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin:0;
 
-  margin-bottom:0;
-
-  background-image: url(../images/background-text-image.jpg);
+  background-image: url(./images/background-text-image.jpg);
   background-size: cover;
   
   background-position: center;
@@ -168,20 +173,25 @@ nav ul li a:hover, #mobileLinks li a:hover {
 .homeSubHeader{
   color:white;
   font-size: 55px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   animation: fadeInSubHeader 1.3s ease-in;
 }
 
 /*About Section Styling*/
+
+#About::before{
+  content: "";
+  display: block;
+  height: 150px;
+  margin-top: -150px;
+  visibility: hidden;
+  pointer-events: none;
+}
 
 .aboutHeader, .aboutParagraph{
   text-align: center;
   color: white;
 }
 .aboutHeader{
-  margin-top: 210px;
   font-size: 50px;
 }
 .aboutParagraph{
@@ -260,22 +270,23 @@ nav ul li a:hover, #mobileLinks li a:hover {
   }
 }
 
-@keyframes fadeInSubHeader{
-  0%{
+@keyframes fadeInSubHeader {
+  0% {
     opacity: 0;
-    padding-top: 20px;
+    transform: translateY(20px);
   }
 
-  50%{
+  50% {
     opacity: 0;
-    padding: 10px;
+    transform: translateY(10px);
   }
 
-  100%{
-    opacity: 100%;
-    padding: 0;
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
+
 
 @keyframes stickyFadeIn{
   from{
@@ -347,25 +358,24 @@ nav ul li a:hover, #mobileLinks li a:hover {
     margin-right: 120px;
   }
   .aboutHeader{
-    margin-top: 170px;
     font-size: 43px;
   }
   .aboutParagraph{
     font-size: 30px;
   }
+  .gallery-image{
+    width: 50%;
+  }
+  
 }
 
 /*iPad Air*/
 @media (max-width: 821px) {
   .aboutHeader{
-    margin-top: 350px;
     font-size: 50px;
   }
   .aboutParagraph{
     font-size: 35px;
-  }
-  .homeHeader{
-    margin-top: 340px;
   }
   .logo{
     font-size: 45px;
@@ -388,11 +398,7 @@ nav ul li a:hover, #mobileLinks li a:hover {
 /*iPad Mini*/
 @media (max-width: 769px) {
   .aboutHeader{
-    margin-top: 280px;
     font-size: 24px;
-  }
-  .homeHeader{
-    margin-top: 260px;
   }
   .aboutHeader{
     font-size: 45px;
@@ -408,7 +414,6 @@ nav ul li a:hover, #mobileLinks li a:hover {
 @media (max-width: 740px) {
   .homeHeader{
     font-size: 80px;
-
   }
   .homeSubHeader{
     font-size: 30px;
@@ -423,14 +428,10 @@ nav ul li a:hover, #mobileLinks li a:hover {
     height: 30px;
   }
   .aboutHeader{
-    margin-top: 170px;
     font-size: 35px;
   }
   .aboutParagraph{
     font-size: 25px;
-  }
-  .homeHeader{
-    margin-top: 100px;
   }
   nav ul li a{
     font-size: 15px;
@@ -443,7 +444,6 @@ nav ul li a:hover, #mobileLinks li a:hover {
 @media (max-width: 512px) {
   .homeHeader{
     font-size: 60px;
-
   }
   .homeSubHeader{
     font-size: 20px;
@@ -458,7 +458,6 @@ nav ul li a:hover, #mobileLinks li a:hover {
     height: 30px;
   }
   .aboutHeader{
-    margin-top: 200px;
     font-size: 26px;
   }
   .aboutParagraph{
@@ -467,9 +466,7 @@ nav ul li a:hover, #mobileLinks li a:hover {
   #myLinks{
     margin-left: 50px;
   }
-  .homeHeader{
-    margin-top: 120px;
-  }
+  
   nav ul li a{
     font-size: 15px;
   }
@@ -481,25 +478,24 @@ nav ul li a:hover, #mobileLinks li a:hover {
     font-size: 25px;
   }
   .aboutHeader{
-    margin-top: 280px;
     font-size: 24px;
-  }
-  .homeHeader{
-    margin-top: 270px;
   }
   #myLinks{
     margin-left: 20px;
+  }
+  .gallery-image{
+    height: 80%;
+    width: 60%;
+  }
+  .left-arrow, .right-arrow{
+    width: 30px;
   }
 }
 
 /*iPhone 12 Pro*/
 @media (max-width: 391px) {
   .aboutHeader{
-    margin-top: 260px;
     font-size: 24px;
-  }
-  .homeHeader{
-    margin-top: 250px;
   }
   #myLinks{
     margin-left: 10px;
@@ -510,7 +506,6 @@ nav ul li a:hover, #mobileLinks li a:hover {
 @media (max-width: 376px) {
   .homeHeader{
     font-size: 45px;
-
   }
   .homeSubHeader{
     font-size: 20px;
@@ -525,7 +520,6 @@ nav ul li a:hover, #mobileLinks li a:hover {
     height: 26px;
   }
   .aboutHeader{
-    margin-top: 230px;
     font-size: 24px;
   }
   .aboutParagraph{
@@ -533,9 +527,6 @@ nav ul li a:hover, #mobileLinks li a:hover {
   }
   #myLinks{
     margin-left: 10px;
-  }
-  .homeHeader{
-    margin-top: 150px;
   }
   nav ul li a{
     font-size: 15px;
@@ -545,10 +536,8 @@ nav ul li a:hover, #mobileLinks li a:hover {
 /*Samsung Galaxy S8+*/
 @media (max-width: 361px) {
   .aboutHeader{
-    margin-top: 220px;
     font-size: 24px;
   }
-  .homeHeader{
-    margin-top: 220px;
-  }
 }
+
+

@@ -133,17 +133,21 @@ function App() {
     setIsMobileNavOpen(!isMobileNavOpen);
 
     const hamburgerIcon = document.getElementById("icon");
+    //const mobileNavBar = document.getElementById("mobileLinks");
+
 
     if(hamburgerIcon?.classList.contains("hidden")){
       //If hidden, make it visible instantly
       hamburgerIcon.classList.remove("hidden");
       hamburgerIcon.classList.add("visible");
+      //mobileNavBar?.classList.add("hidden");
     }
     else{
       //If visible, hide after a delay
       hamburgerIcon?.classList.remove("visible");
       setTimeout(() => {
         hamburgerIcon?.classList.add("hidden");
+        //mobileNavBar?.classList.remove("hidden");
       }, 300);
     }   
   };
@@ -172,8 +176,7 @@ function App() {
         </nav>
       </header>
 
-      <ul id="mobileLinks" className={isMobileNavOpen ? 'open' : ''}>
-        <li><a className="navbarText" href="#linkTop" onClick={handleMobileNavbarClick}>Home</a></li>
+      <ul id="mobileLinks" className={isMobileNavOpen ? 'open' : ' '}>        <li><a className="navbarText" href="#linkTop" onClick={handleMobileNavbarClick}>Home</a></li>
         <li><a className="navbarText" href="#About" onClick={handleMobileNavbarClick}>About</a></li>
         <li><a className="navbarText" href="#Gallery" onClick={handleMobileNavbarClick}>Gallery</a></li>
         <li><a className="navbarText" href="#Shop" onClick={handleMobileNavbarClick}>Shop</a></li>
@@ -188,7 +191,7 @@ function App() {
       </section>
 
       <section id="About">
-        <h3 className="aboutHeader">My name is Jayden Crowther</h3>
+        <h3 className="aboutHeader">Hey, I'm Jayden</h3>
         <p className="aboutParagraph">I am a professional photographer based in Utah Valley, known for my exceptional charisma and innate talent for working with people. With expertise in capturing stunning portraits, engaging engagement photos, and heartwarming family moments, I strive to deliver a remarkable photography experience. </p>
       </section>
 

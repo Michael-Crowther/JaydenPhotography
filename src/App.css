@@ -137,7 +137,7 @@ nav ul li a:hover, #mobileLinks li a:hover {
   color: black;
 }
 .hidden{
-  display: none;
+  display: none !important;
 }
 
 
@@ -220,13 +220,59 @@ nav ul li a:hover, #mobileLinks li a:hover {
   justify-content: center;
 }
 
-
 .gallery-image {
   width: auto;
   height: 100%;
   object-fit: cover;
   border: 3px solid rgb(2, 2, 2);
   border-radius: 10px;
+}
+.gallery-image:hover{
+  opacity: 70%;
+  cursor: pointer;
+}
+
+.modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-content{
+  position: relative;
+  width: 70%;
+  max-width: 800px;  
+  background: rgb(255, 255, 255);
+  padding: 3px;
+  padding-bottom: 0px;
+  border: 3px solid rgb(2, 2, 2);
+  border-radius: 10px;
+  animation: stickyFadeIn 0.4s ease-in-out forwards;
+}
+.modal-content.portrait{
+  width: 25%;
+}
+
+.close-icon{
+  position: absolute;
+  cursor: pointer;
+  color: white;
+  width: 30px;
+  height: 30px;
+  top: -30px;
+  right: -30px;
+}
+.close-icon:hover{
+  color: rgba(255, 108, 137, 0.816);
+}
+.modal-image{
+  width: 100%;
+  height: auto;
 }
 
 .arrow {
@@ -248,6 +294,16 @@ nav ul li a:hover, #mobileLinks li a:hover {
   position: relative;
   height: 100%;
   width: 40px;
+}
+.left-arrow-modal, .right-arrow-modal{
+  color: white;
+  position: absolute;
+}
+.left-arrow-modal{
+  left: -100px;
+}
+.right-arrow-modal{
+  right: -100px;
 }
 
 .left-arrow {
@@ -367,6 +423,7 @@ nav ul li a:hover, #mobileLinks li a:hover {
     width: 50%;
   }
   
+  
 }
 
 /*iPad Air*/
@@ -392,6 +449,17 @@ nav ul li a:hover, #mobileLinks li a:hover {
   }
   .icon{
     margin-right: 80px;
+  }
+  
+  .modal-content.portrait{
+    width: 53%;
+  }
+  
+  .left-arrow-modal{
+    left: -65px;
+  }
+  .right-arrow-modal{
+    right: -65px;
   }
 }
 
@@ -438,6 +506,16 @@ nav ul li a:hover, #mobileLinks li a:hover {
   }
   #mobileLinks{
     width: 40%;
+  }
+  .left-arrow-modal{
+    left: -40px;
+  }
+  .right-arrow-modal{
+    right: -40px;
+  }
+  .right-arrow-modal, .left-arrow-modal{
+    width: 25px;
+    height: 25px;
   }
 }
 

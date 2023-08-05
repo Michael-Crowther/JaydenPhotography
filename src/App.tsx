@@ -1,7 +1,7 @@
 import './App.css';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faArrowRight, faArrowLeft, faTimes } from '@fortawesome/free-solid-svg-icons';
 import img1 from "./images/img1.jpg";
 import img2 from "./images/img2.jpg";
 import img3 from "./images/img3.jpg";
@@ -20,8 +20,11 @@ const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img
 
 function App() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-
+  const [showModal, setShowModal] = useState(false);
+  const [isPortraitImage, setIsPortraitImage] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  //const imageRef = useRef<HTMLImageElement>(null);
+  const modalContentRef = useRef<HTMLDivElement>(null);
 
   //UseEffect hook for checking if user scrolls. Change navbar if user scrolls
   useEffect(() => {
@@ -160,6 +163,41 @@ function App() {
     setCurrentImageIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
   };
 
+  const closeModal = () => {
+    setShowModal(false);
+    setIsPortraitImage(false);
+
+    const header = document.getElementById("Top");
+
+    header?.classList.toggle("hidden");
+  }
+
+  const openModal = () => {
+    setShowModal(true);
+
+    const header = document.getElementById("Top");
+
+    header?.classList.toggle("hidden");
+  }
+
+  const handleImageLoad = () => {
+    const modalContent = modalContentRef.current;
+
+    if(modalContent){
+      const rect = modalContent.getBoundingClientRect();
+      const height = rect.height;
+
+      console.log(height);
+
+      if(height && height > 550){
+        setIsPortraitImage(true);
+      }
+      else{
+        setIsPortraitImage(false);
+      }
+    }
+  }
+
   return (
     <div className="App" id="linkTop">
       <header id="Top">
@@ -176,7 +214,8 @@ function App() {
         </nav>
       </header>
 
-      <ul id="mobileLinks" className={isMobileNavOpen ? 'open' : ' '}>        <li><a className="navbarText" href="#linkTop" onClick={handleMobileNavbarClick}>Home</a></li>
+      <ul id="mobileLinks" className={isMobileNavOpen ? 'open' : ' '}>        
+        <li><a className="navbarText" href="#linkTop" onClick={handleMobileNavbarClick}>Home</a></li>
         <li><a className="navbarText" href="#About" onClick={handleMobileNavbarClick}>About</a></li>
         <li><a className="navbarText" href="#Gallery" onClick={handleMobileNavbarClick}>Gallery</a></li>
         <li><a className="navbarText" href="#Shop" onClick={handleMobileNavbarClick}>Shop</a></li>
@@ -198,9 +237,19 @@ function App() {
       <section id="Gallery">
         <div className="image-container">
           <FontAwesomeIcon icon={faArrowLeft} className="arrow left-arrow" onClick={goToLeftImage} />
-          <img src={images[currentImageIndex]} alt="gallery" className="gallery-image" />
+          <img src={images[currentImageIndex]} alt="gallery" className="gallery-image" onClick={openModal} />
           <FontAwesomeIcon icon={faArrowRight} className="arrow right-arrow" onClick={goToRightImage} />
         </div>
+        {showModal &&
+          <div className="modal" onClick={closeModal}>
+            <div id="modal-content" ref={modalContentRef} className={`modal-content ${isPortraitImage ? 'portrait' : ''}`} onClick={e => e.stopPropagation()}>
+              <FontAwesomeIcon icon={faTimes} className="close-icon" onClick={closeModal}/>
+              <FontAwesomeIcon icon={faArrowLeft} className="arrow left-arrow-modal" onClick={goToLeftImage} />
+              <img src={images[currentImageIndex]} alt="gallery" id="modal-image" className="modal-image" onLoad={handleImageLoad} />
+              <FontAwesomeIcon icon={faArrowRight} className="arrow right-arrow-modal" onClick={goToRightImage} />
+            </div>
+          </div>
+        }
       </section>
 
       <section id="Shop">

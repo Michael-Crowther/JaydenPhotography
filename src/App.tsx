@@ -172,7 +172,7 @@ function App() {
 
       <section id="About">
         <h3 className="aboutHeader">Hey, I'm Jayden</h3>
-        <p className="aboutParagraph">I am a professional photographer based in Utah Valley, known for my exceptional charisma and innate talent for working with people. With expertise in capturing stunning portraits, engaging engagement photos, and heartwarming family moments, I strive to deliver a remarkable photography experience. </p>
+        <p className="aboutParagraph">I'm a photographer from the beautiful Utah Valley. People say I have a knack for making them feel at ease in front of the camera. Whether it's capturing candid moments, vibrant portraits, or those once-in-a-lifetime family memories, my goal is to make every shot count and give you photos you'll cherish. Feel free to contact me so we can schedule a shoot!</p>
       </section>
 
       <Gallery/>

@@ -201,7 +201,7 @@ nav ul li a:hover, #mobileLinks li a:hover {
 .aboutParagraph{
   font-size: 35px;
   padding-bottom: 50px;
-  margin: 50px;
+  margin: 40px;
 }
 
 
@@ -292,6 +292,7 @@ nav ul li a:hover, #mobileLinks li a:hover {
   font-size: 3rem;
   cursor: pointer;
   color: white;
+  transition: all 0.3s ease; /* Smooth transition for all properties */
 }
 .arrow:hover{
   color: rgba(255, 108, 137, 0.816);
@@ -333,6 +334,62 @@ nav ul li a:hover, #mobileLinks li a:hover {
   margin: 0 auto;
   position: absolute;
 }
+
+
+/*Shop Section Styling*/
+
+.shop-content{
+  padding-bottom: 50px;
+  padding-top: 50px;
+
+  display: flex;
+  align-items: center;
+}
+
+.shop-description{
+  color: white;
+  width: 50%;
+  margin-left: 100px;
+  font-weight: normal;
+}
+
+.shop-link{
+  position: relative;
+  width: 15%;
+  height: 60px;
+  margin-left: 180px;
+  margin-top: 50px;
+  background-color: rgba(255, 108, 137, 0.816);
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 5px;
+  transform: translateY(-50%);
+  box-shadow: 3px 3px 5px black;
+  border: 2px solid rgba(255, 108, 137, 0.816);
+  transition: all 0.3s ease;
+  text-align: center;     
+}
+
+.shop-link:hover{
+  cursor: pointer;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.shop-link button {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+
 
 /*Animations*/
 
@@ -420,6 +477,11 @@ nav ul li a:hover, #mobileLinks li a:hover {
   .icon{
     display:inline;
   }
+
+  .shop-link{
+    font-size: 14px;
+    margin-left: 130px;
+  }
 }
 
 @media (max-width: 1100px) {
@@ -445,7 +507,9 @@ nav ul li a:hover, #mobileLinks li a:hover {
   .gallery-image{
     width: 50%;
   }
-  
+  .shop-link{
+    width: 20%;
+  }
   
 }
 
@@ -477,7 +541,10 @@ nav ul li a:hover, #mobileLinks li a:hover {
   .modal-content.portrait{
     width: 53%;
   }
-
+  .shop-link{
+    margin-left: 80px;
+    width: 20%;
+  }
 
   
   .left-arrow-modal{
@@ -541,6 +608,20 @@ nav ul li a:hover, #mobileLinks li a:hover {
   .right-arrow-modal, .left-arrow-modal{
     width: 25px;
     height: 25px;
+  }
+  .shop-content{
+    flex-direction: column;
+  }
+  .shop-description{
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+  }
+  .shop-link{
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 60px;
+    font-size: 16px;
   }
 }
 

@@ -1,30 +1,13 @@
 import './App.css';
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faArrowRight, faArrowLeft, faTimes } from '@fortawesome/free-solid-svg-icons';
-import img1 from "./images/img1.jpg";
-import img2 from "./images/img2.jpg";
-import img3 from "./images/img3.jpg";
-import img4 from "./images/img4.jpg";
-import img5 from "./images/img5.jpg";
-import img6 from "./images/img6.jpg";
-import img7 from "./images/img7.jpg";
-import img8 from "./images/img8.jpg";
-import img9 from "./images/img9.jpg";
-import img10 from "./images/img10.jpg";
-import img11 from "./images/img11.jpg";
-import img12 from "./images/img12.jpg";
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import Gallery from './Gallery';
+import Shop from './Shop';
 
-
-const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12]
 
 function App() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  const [isPortraitImage, setIsPortraitImage] = useState(false);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  //const imageRef = useRef<HTMLImageElement>(null);
-  const modalContentRef = useRef<HTMLDivElement>(null);
 
   //UseEffect hook for checking if user scrolls. Change navbar if user scrolls
   useEffect(() => {
@@ -155,48 +138,6 @@ function App() {
     }   
   };
 
-  const goToLeftImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
-  }
-
-  const goToRightImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
-  };
-
-  const closeModal = () => {
-    setShowModal(false);
-    setIsPortraitImage(false);
-
-    const header = document.getElementById("Top");
-
-    header?.classList.toggle("hidden");
-  }
-
-  const openModal = () => {
-    setShowModal(true);
-
-    const header = document.getElementById("Top");
-
-    header?.classList.toggle("hidden");
-  }
-
-  const handleImageLoad = () => {
-    const modalContent = modalContentRef.current;
-
-    if(modalContent){
-      const rect = modalContent.getBoundingClientRect();
-      const height = rect.height;
-
-      console.log(height);
-
-      if(height && height > 550){
-        setIsPortraitImage(true);
-      }
-      else{
-        setIsPortraitImage(false);
-      }
-    }
-  }
 
   return (
     <div className="App" id="linkTop">
@@ -234,27 +175,9 @@ function App() {
         <p className="aboutParagraph">I am a professional photographer based in Utah Valley, known for my exceptional charisma and innate talent for working with people. With expertise in capturing stunning portraits, engaging engagement photos, and heartwarming family moments, I strive to deliver a remarkable photography experience. </p>
       </section>
 
-      <section id="Gallery">
-        <div className="image-container">
-          <FontAwesomeIcon icon={faArrowLeft} className="arrow left-arrow" onClick={goToLeftImage} />
-          <img src={images[currentImageIndex]} alt="gallery" className="gallery-image" onClick={openModal} />
-          <FontAwesomeIcon icon={faArrowRight} className="arrow right-arrow" onClick={goToRightImage} />
-        </div>
-        {showModal &&
-          <div className="modal" onClick={closeModal}>
-            <div id="modal-content" ref={modalContentRef} className={`modal-content ${isPortraitImage ? 'portrait' : ''}`} onClick={e => e.stopPropagation()}>
-              <FontAwesomeIcon icon={faTimes} className="close-icon" onClick={closeModal}/>
-              <FontAwesomeIcon icon={faArrowLeft} className="arrow left-arrow-modal" onClick={goToLeftImage} />
-              <img src={images[currentImageIndex]} alt="gallery" id="modal-image" className="modal-image" onLoad={handleImageLoad} />
-              <FontAwesomeIcon icon={faArrowRight} className="arrow right-arrow-modal" onClick={goToRightImage} />
-            </div>
-          </div>
-        }
-      </section>
+      <Gallery/>
 
-      <section id="Shop">
-
-      </section>
+      <Shop/>
 
       <section id="Contact">
 

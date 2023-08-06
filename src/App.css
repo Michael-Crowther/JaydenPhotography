@@ -252,11 +252,15 @@ nav ul li a:hover, #mobileLinks li a:hover {
   padding-bottom: 0px;
   border: 3px solid rgb(2, 2, 2);
   border-radius: 10px;
-  animation: stickyFadeIn 0.4s ease-in-out forwards;
+  animation: stickyFadeIn 0.3s ease-in-out forwards;
 }
 .modal-content.portrait{
   width: 25%;
 }
+.modal-content.hidden-modal-content{
+  visibility: hidden;
+}
+
 
 .close-icon{
   position: absolute;
@@ -314,6 +318,18 @@ nav ul li a:hover, #mobileLinks li a:hover {
   right: -20px;
 }
 
+.loading {
+  border: 8px solid #f3f3f3;
+  /*border-top: 8px solid rgb(226, 130, 20);*/
+  border-top: 8px solid rgba(255, 108, 137, 0.816);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+  position: absolute;
+}
+
 /*Animations*/
 
 @keyframes fadeInHeader{
@@ -365,7 +381,10 @@ nav ul li a:hover, #mobileLinks li a:hover {
   }
 }
 
-
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 
 
 /*Media Queries*/
@@ -454,6 +473,8 @@ nav ul li a:hover, #mobileLinks li a:hover {
   .modal-content.portrait{
     width: 53%;
   }
+
+
   
   .left-arrow-modal{
     left: -65px;

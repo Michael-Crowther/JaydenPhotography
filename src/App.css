@@ -2,6 +2,10 @@
   background-color: #222121;
   height: 100%;
 }
+html.modal-open{
+  overflow: hidden;
+}
+
 
 /*Navbar Styling*/
 

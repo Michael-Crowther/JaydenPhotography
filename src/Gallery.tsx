@@ -25,7 +25,7 @@ const Gallery: React.FC = () => {
   const [isPortraitImage, setIsPortraitImage] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isContentVisible, setIsContentVisible] = useState(true);
-  
+
   const imageLoadedRef = useRef(imageLoaded);
   const modalContentRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number>(0);//for mobile swipe on gallery
@@ -46,7 +46,7 @@ const Gallery: React.FC = () => {
         if(imageLoadedRef.current === false)
             setIsLoading(true);
         setIsContentVisible(true);
-    }, 400);
+    }, 300);
   }
 
   const goToRightImage = () => {
@@ -61,6 +61,8 @@ const Gallery: React.FC = () => {
     setIsPortraitImage(false);
     setIsLoading(false);
 
+    document.documentElement.classList.remove('modal-open');
+
     const header = document.getElementById("Top");
 
     header?.classList.toggle("hidden");
@@ -71,6 +73,8 @@ const Gallery: React.FC = () => {
     setIsContentVisible(false); // <- hide content initially
     setImageLoaded(false);
     loadTimer();
+
+    document.documentElement.classList.add('modal-open');
 
     const header = document.getElementById("Top");
 
@@ -120,12 +124,10 @@ const Gallery: React.FC = () => {
 
     if(Math.abs(swipeLength) > 100){
       if(swipeLength > 0){
-        //Go right image
-        setCurrentImageIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+        goToRightImage();
       }
       else{
-        //Go left image
-        setCurrentImageIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+        goToLeftImage();
       }
     }
   }

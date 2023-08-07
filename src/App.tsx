@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import Gallery from './Gallery';
 import Shop from './Shop';
+import Contact from './Contact';
+import image from './images/headshot.png';
 
 
 function App() {
@@ -171,17 +173,20 @@ function App() {
       </section>
 
       <section id="About">
-        <h3 className="aboutHeader">Hey, I'm Jayden</h3>
-        <p className="aboutParagraph">I'm a photographer from the beautiful Utah Valley. People say I have a knack for making them feel at ease in front of the camera. Whether it's capturing candid moments, vibrant portraits, or those once-in-a-lifetime family memories, my goal is to make every shot count and give you photos you'll cherish. Feel free to contact me so we can schedule a shoot!</p>
+        <div className="about-parent">
+          <img src={image} alt="profile" className="about-image" />
+          <div className="about-content">
+            <h3 className="aboutHeader">Hey, I'm Jayden</h3>
+            <p className="aboutParagraph">I'm a photographer from the beautiful Utah Valley. People say I have a knack for making them feel at ease in front of the camera. Whether it's capturing candid moments, vibrant portraits, or those once-in-a-lifetime family memories, my goal is to make every shot count and give you photos you'll cherish. Feel free to contact me so we can schedule a shoot!</p>
+          </div>
+        </div>
       </section>
 
       <Gallery/>
 
       <Shop/>
 
-      <section id="Contact">
-
-      </section>
+      <Contact/>
   </div>
   );
 }

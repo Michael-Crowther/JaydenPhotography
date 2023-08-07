@@ -185,30 +185,62 @@ nav ul li a:hover, #mobileLinks li a:hover {
 #About::before{
   content: "";
   display: block;
-  height: 150px;
-  margin-top: -150px;
+  height: 250px;
+  margin-top: -250px;
   visibility: hidden;
   pointer-events: none;
+}
+
+.about-parent{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 180px;
+  margin-bottom: 50px;
+}
+.about-content{
+  width: 75%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .aboutHeader, .aboutParagraph{
   text-align: center;
   color: white;
 }
+.aboutParagraph{
+  width: 70%;
+  font-size: 25px;
+}
 .aboutHeader{
   font-size: 50px;
+  margin: 0;
 }
-.aboutParagraph{
-  font-size: 35px;
-  padding-bottom: 50px;
-  margin: 40px;
+.about-image{
+  width: 14%;
+  height: auto;
+  border: 3px solid rgb(2, 2, 2);
+  border-radius: 10px;
+  position: relative;
 }
 
 
 /*Gallery Section Styling*/
 
+
 #Gallery{
   background-color: rgba(255, 108, 137, 0.105);
+}
+
+#Gallery::before{
+  content: "";
+  display: block;
+  height: 150px;
+  margin-top: -150px;
+  background-color: #222121;
+  pointer-events: none;
 }
 
 .image-container {
@@ -246,6 +278,7 @@ nav ul li a:hover, #mobileLinks li a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 10000;
 }
 .modal-content{
   position: relative;
@@ -338,6 +371,16 @@ nav ul li a:hover, #mobileLinks li a:hover {
 
 /*Shop Section Styling*/
 
+#Shop::before{
+  content: "";
+  display: block;
+  height: 150px;
+  margin-top: -150px;
+  visibility: hidden;
+  /*background-color: #222121;*/
+  pointer-events: none;
+}
+
 .shop-content{
   padding-bottom: 50px;
   padding-top: 50px;
@@ -390,6 +433,96 @@ nav ul li a:hover, #mobileLinks li a:hover {
 }
 
 
+/*Contact Section Styling*/
+#Contact{
+  background-color: rgba(255, 108, 137, 0.105);
+}
+
+#Contact::before{
+  content: "";
+  display: block;
+  height: 150px;
+  margin-top: -150px;
+  background-color: #222121;
+  pointer-events: none;
+}
+
+.contact-header{
+  text-align: center;
+  padding-top: 10px;
+  color: rgb(255, 255, 255);
+}
+
+form{
+  max-width: 600px;
+  margin: 1rem auto;
+  padding: 1.6rem;
+  padding-right: 3.25rem;
+}
+
+form div{
+  margin-bottom: 1.5rem;
+  padding: 0.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: rgba(255, 108, 137, 0.816);
+  outline: none;
+}
+
+.button-parent{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button[type="submit"] {
+  background-color: rgba(255, 108, 137, 0.816);
+  color: #000000;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: rgba(255, 108, 137, 0.816);
+}
+
+/*
+.error{
+  color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+*/
 
 /*Animations*/
 
@@ -502,7 +635,10 @@ nav ul li a:hover, #mobileLinks li a:hover {
     font-size: 43px;
   }
   .aboutParagraph{
-    font-size: 30px;
+    font-size: 25px;
+  }
+  .about-image{
+    width: 17%;
   }
   .gallery-image{
     width: 50%;
@@ -518,8 +654,17 @@ nav ul li a:hover, #mobileLinks li a:hover {
   .aboutHeader{
     font-size: 50px;
   }
+  .about-image{
+    width: 30%;
+    margin-right: 100px;
+  }
+  .about-parent{
+    margin-left: 50px;
+    margin-right: 50px;
+  }
   .aboutParagraph{
-    font-size: 35px;
+    font-size: 26px;
+    width: 100%;
   }
   .logo{
     font-size: 45px;
@@ -591,7 +736,10 @@ nav ul li a:hover, #mobileLinks li a:hover {
     font-size: 35px;
   }
   .aboutParagraph{
-    font-size: 25px;
+    font-size: 20px;
+  }
+  .about-image{
+    margin-right: 40px;
   }
   nav ul li a{
     font-size: 15px;
@@ -612,6 +760,22 @@ nav ul li a:hover, #mobileLinks li a:hover {
   .shop-content{
     flex-direction: column;
   }
+  #About::before{
+    height: 150px;
+    margin-top: -150px;
+  }
+  #Gallery::before{
+    height: 120px;
+    margin-top: -120px;
+  }
+  #Shop::before{
+    height: 120px;
+    margin-top: -120px;
+  }
+  #Contact::before{
+    height: 120px;
+    margin-top: -120px;
+  }
   .shop-description{
     text-align: center;
     width: 80%;
@@ -620,7 +784,7 @@ nav ul li a:hover, #mobileLinks li a:hover {
   .shop-link{
     width: 70%;
     margin: 0 auto;
-    margin-top: 60px;
+    margin-top: 70px;
     font-size: 16px;
   }
 }
@@ -645,7 +809,7 @@ nav ul li a:hover, #mobileLinks li a:hover {
     font-size: 26px;
   }
   .aboutParagraph{
-    font-size: 23px;
+    font-size: 17px;
   }
   #myLinks{
     margin-left: 50px;
@@ -663,6 +827,18 @@ nav ul li a:hover, #mobileLinks li a:hover {
   }
   .aboutHeader{
     font-size: 24px;
+  }
+  .about-parent{
+    flex-direction: column;
+  }
+  .about-content {
+    width: 100%;
+    margin: 0;
+  }
+  .about-image{
+    width: 70%;
+    margin: 0;
+    margin-bottom: 15px;
   }
   #myLinks{
     margin-left: 20px;

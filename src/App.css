@@ -811,6 +811,18 @@ button[type="submit"]:hover {
   .aboutParagraph{
     font-size: 17px;
   }
+  .about-parent{
+    flex-direction: column;
+  }
+  .about-content {
+    width: 100%;
+    margin: 0;
+  }
+  .about-image{
+    width: 70%;
+    margin: 0;
+    margin-bottom: 15px;
+  }
   #myLinks{
     margin-left: 50px;
   }
@@ -827,18 +839,6 @@ button[type="submit"]:hover {
   }
   .aboutHeader{
     font-size: 24px;
-  }
-  .about-parent{
-    flex-direction: column;
-  }
-  .about-content {
-    width: 100%;
-    margin: 0;
-  }
-  .about-image{
-    width: 70%;
-    margin: 0;
-    margin-bottom: 15px;
   }
   #myLinks{
     margin-left: 20px;

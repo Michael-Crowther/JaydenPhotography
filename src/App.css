@@ -510,19 +510,68 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: rgba(255, 108, 137, 0.816);
+  background-color: rgba(255, 72, 109, 0.816); /* darker version of the button color */
 }
 
-/*
-.error{
+
+.error-message{
   color: red;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0;
+  margin-bottom: 20px;
   padding: 0;
 }
-*/
+
+/*Contact Modal*/
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.792); /* semi-transparent black */
+  z-index: 9999; /* make sure it's on top */
+}
+
+.modal-contact {
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 10px;
+  width: 60%;
+  max-width: 500px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* shadow for a bit of depth */
+}
+
+.modal-contact p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.modal-contact button {
+  font-size: 16px;
+  padding: 6px 15px;
+  color: black;
+  background-color: rgba(255, 108, 137, 0.816);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-contact button:hover {
+  background-color: rgba(255, 72, 109, 0.816); /* darker version of the button color */
+}
+
 
 /*Animations*/
 
@@ -690,7 +739,12 @@ button[type="submit"]:hover {
     margin-left: 80px;
     width: 20%;
   }
-
+  .modal-contact p {
+    font-size: 20px;
+  }
+  .modal-contact button {
+    padding: 10px 20px;
+  }
   
   .left-arrow-modal{
     left: -65px;
@@ -839,6 +893,9 @@ button[type="submit"]:hover {
   }
   .aboutHeader{
     font-size: 24px;
+  }
+  .aboutParagraph{
+    font-size: 23px;
   }
   #myLinks{
     margin-left: 20px;

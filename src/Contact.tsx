@@ -75,7 +75,7 @@ const ContactForm: React.FC = () => {
     return (   
         <div id="Contact">
             <h2 className="contact-header">Contact Me</h2> 
-            <form className="form" onSubmit={handleSubmit}>
+            <form className="form" onSubmit={handleSubmit} method="POST" data-netlify="true">
                 <div>
                     <label htmlFor="firstName">First Name:</label>
                     <input type="text" id="firstName" name="firstName" onChange={handleChange} value={form.firstName} />

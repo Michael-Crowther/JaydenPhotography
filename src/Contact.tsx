@@ -20,15 +20,15 @@ const ContactForm: React.FC = () => {
     }
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-
         setErrorMessage('');
 
         const phoneRegex = /^(\d{3}-?\d{3}-?\d{4})$/;
 
         if (Object.values(form).some((value) => value === '')) {
+            e.preventDefault();
             setErrorMessage('Please fill out all fields before submitting');
         } else if (!phoneRegex.test(form.phone)) {
+            e.preventDefault();
             setErrorMessage('Please enter a valid phone number');
         } else {
             // Reset form fields

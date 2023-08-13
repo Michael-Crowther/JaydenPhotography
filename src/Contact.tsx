@@ -21,7 +21,7 @@ const ContactForm: React.FC = () => {
         });
     }
 
-    /*
+    
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         
         setErrorMessage('');
@@ -43,14 +43,14 @@ const ContactForm: React.FC = () => {
                 email: '',
                 message: '',
             });
-            setIsModalOpen(true);
+            //setIsModalOpen(true);
             document.documentElement.classList.add('modal-open');
         }   
     }
-    */
+    
     
 
-    
+    /*
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
         e.preventDefault();
     
@@ -98,6 +98,7 @@ const ContactForm: React.FC = () => {
             setErrorMessage('An error occurred. Please try again.');
         }
     };
+    */
     
     
 

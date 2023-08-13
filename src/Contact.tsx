@@ -36,6 +36,7 @@ const ContactForm: React.FC = () => {
             setErrorMessage('Please enter a valid phone number');
         } else {
             // Reset form fields
+            /*
             setForm({
                 firstName: '',
                 lastName: '',
@@ -43,6 +44,7 @@ const ContactForm: React.FC = () => {
                 email: '',
                 message: '',
             });
+            */
             //setIsModalOpen(true);
             document.documentElement.classList.add('modal-open');
         }   

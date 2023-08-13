@@ -144,15 +144,6 @@ function App() {
   return (
     <div className="App" id="linkTop">
 
-    {/*Hidden NEtlify Form */}
-    <form name="contactForm" data-netlify="true" netlify-honeypot="bot-field" hidden>
-      <input type="text" name="firstName" />
-      <input type="text" name="lastName" />
-      <input type="tel" name="phone" />
-      <input type="email" name="email" />
-      <textarea name="message"></textarea>
-    </form>
-
       <header id="Top">
         <div className="logo" id="logo">Jayden Crowther</div>
         <nav className="navbar" id="navbar">

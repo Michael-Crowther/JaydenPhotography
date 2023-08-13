@@ -21,6 +21,7 @@ const ContactForm: React.FC = () => {
 
     
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        /*
         setErrorMessage('');
 
         const phoneRegex = /^(\d{3}-?\d{3}-?\d{4})$/;
@@ -43,7 +44,7 @@ const ContactForm: React.FC = () => {
             setIsModalOpen(true);
             document.documentElement.classList.add('modal-open');
         }
-        //Handle form submission logic here, send data to API...
+        */
     }
     
 

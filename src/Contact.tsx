@@ -19,7 +19,7 @@ const ContactForm: React.FC = () => {
         });
     }
 
-    /*
+    
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         setErrorMessage('');
 
@@ -45,8 +45,9 @@ const ContactForm: React.FC = () => {
         }
         //Handle form submission logic here, send data to API...
     }
-    */
+    
 
+    /*
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
         e.preventDefault();
     
@@ -94,6 +95,7 @@ const ContactForm: React.FC = () => {
             setErrorMessage('An error occurred. Please try again.');
         }
     };
+    */
     
 
     /**Modal Stuff Here */
@@ -126,7 +128,7 @@ const ContactForm: React.FC = () => {
     return (   
         <div id="Contact">
             <h2 className="contact-header">Contact Me</h2> 
-            <form name="contactForm" action="/" className="form" onSubmit={handleSubmit} method="POST" data-netlify="true">
+            <form name="contactForm" className="form" onSubmit={handleSubmit} method="POST" data-netlify="true">
                 <input type="hidden" name="form-name" value="contactForm" />
 
                 <div>

@@ -19,7 +19,7 @@ const ContactForm: React.FC = () => {
         });
     }
 
-    
+    /*
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         setErrorMessage('');
 
@@ -45,6 +45,55 @@ const ContactForm: React.FC = () => {
         }
         //Handle form submission logic here, send data to API...
     }
+    */
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
+        e.preventDefault();
+    
+        setErrorMessage('');
+    
+        const phoneRegex = /^(\d{3}-?\d{3}-?\d{4})$/;
+    
+        if (Object.values(form).some((value) => value === '')) {
+            setErrorMessage('Please fill out all fields before submitting');
+            return;
+        } else if (!phoneRegex.test(form.phone)) {
+            setErrorMessage('Please enter a valid phone number');
+            return;
+        }
+    
+        // Fetch API to handle AJAX form submission to Netlify
+        let formData = new FormData(e.currentTarget); // e.currentTarget refers to the form itself
+    
+        try {
+            let response: Response = await fetch("https://jayden-photography.netlify.app/", {
+                method: "POST",
+                headers: { "Accept": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(formData as any).toString(),
+            });
+
+            console.log(response.status, response.statusText);
+    
+            if (response.ok) {
+                // Show your modal upon successful form submission
+                setIsModalOpen(true);
+                document.documentElement.classList.add('modal-open');
+    
+                // Optionally, reset form fields
+                setForm({
+                    firstName: '',
+                    lastName: '',
+                    phone: '',
+                    email: '',
+                    message: '',
+                });
+            } else {
+                setErrorMessage('Form submission failed. Please try again.');
+            }
+        } catch (error) {
+            setErrorMessage('An error occurred. Please try again.');
+        }
+    };
     
 
     /**Modal Stuff Here */

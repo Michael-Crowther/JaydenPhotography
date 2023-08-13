@@ -20,6 +20,7 @@ const ContactForm: React.FC = () => {
     }
 
     
+    /*
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         setErrorMessage('');
 
@@ -45,6 +46,7 @@ const ContactForm: React.FC = () => {
         }
         //Handle form submission logic here, send data to API...
     }
+    */
     
 
     /*

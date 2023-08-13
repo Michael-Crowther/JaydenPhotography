@@ -19,52 +19,33 @@ const ContactForm: React.FC = () => {
         });
     }
 
-
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
-        e.preventDefault();
     
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         setErrorMessage('');
-    
+
         const phoneRegex = /^(\d{3}-?\d{3}-?\d{4})$/;
-    
+
         if (Object.values(form).some((value) => value === '')) {
+            e.preventDefault();
             setErrorMessage('Please fill out all fields before submitting');
-            return;
         } else if (!phoneRegex.test(form.phone)) {
+            e.preventDefault();
             setErrorMessage('Please enter a valid phone number');
-            return;
-        }
-    
-        // Fetch API to handle AJAX form submission to Netlify
-        let formData = new FormData(e.currentTarget); // e.currentTarget refers to the form itself
-    
-        try {
-            let response: Response = await fetch("/", {
-                method: "POST",
-                headers: { "Accept": "application/x-www-form-urlencoded" },
-                body: new URLSearchParams(formData as any).toString(),
+        } else {
+            // Reset form fields
+            setForm({
+                firstName: '',
+                lastName: '',
+                phone: '',
+                email: '',
+                message: '',
             });
-    
-            if (response.ok) {
-                // Show your modal upon successful form submission
-                setIsModalOpen(true);
-                document.documentElement.classList.add('modal-open');
-    
-                // Reset form fields
-                setForm({
-                    firstName: '',
-                    lastName: '',
-                    phone: '',
-                    email: '',
-                    message: '',
-                });
-            } else {
-                setErrorMessage('Form submission failed. Please try again.');
-            }
-        } catch (error) {
-            setErrorMessage('An error occurred. Please try again.');
+            setIsModalOpen(true);
+            document.documentElement.classList.add('modal-open');
         }
-    };
+        //Handle form submission logic here, send data to API...
+    }
+    
 
     /**Modal Stuff Here */
     const handleCloseModal = () => {

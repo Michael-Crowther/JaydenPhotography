@@ -21,9 +21,9 @@ const ContactForm: React.FC = () => {
 
     
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        /*
+        
         setErrorMessage('');
-
+        /*
         const phoneRegex = /^(\d{3}-?\d{3}-?\d{4})$/;
 
         if (Object.values(form).some((value) => value === '')) {

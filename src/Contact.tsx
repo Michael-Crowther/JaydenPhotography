@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+
+
 const ContactForm: React.FC = () => {
     const [form, setForm] = useState({
         firstName: '',
@@ -23,7 +25,7 @@ const ContactForm: React.FC = () => {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         
         setErrorMessage('');
-        /*
+        
         const phoneRegex = /^(\d{3}-?\d{3}-?\d{4})$/;
 
         if (Object.values(form).some((value) => value === '')) {
@@ -44,7 +46,7 @@ const ContactForm: React.FC = () => {
             setIsModalOpen(true);
             document.documentElement.classList.add('modal-open');
         }
-        */
+        
     }
     
 
@@ -129,7 +131,7 @@ const ContactForm: React.FC = () => {
     return (   
         <div id="Contact">
             <h2 className="contact-header">Contact Me</h2> 
-            <form name="contactForm" className="form" method="POST" data-netlify="true" onClick={handleSubmit}>
+            <form name="contactForm" className="form" method="post" data-netlify="true" onClick={handleSubmit}>
                 <input type="hidden" name="form-name" value="contactForm" />
 
                 <div>

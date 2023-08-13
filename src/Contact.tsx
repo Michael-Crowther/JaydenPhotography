@@ -20,7 +20,6 @@ const ContactForm: React.FC = () => {
     }
 
     
-    /*
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         setErrorMessage('');
 
@@ -46,7 +45,6 @@ const ContactForm: React.FC = () => {
         }
         //Handle form submission logic here, send data to API...
     }
-    */
     
 
     /*
@@ -130,7 +128,7 @@ const ContactForm: React.FC = () => {
     return (   
         <div id="Contact">
             <h2 className="contact-header">Contact Me</h2> 
-            <form name="contactForm" className="form" method="POST" data-netlify="true">
+            <form name="contactForm" className="form" method="POST" data-netlify="true" onClick={handleSubmit}>
                 <input type="hidden" name="form-name" value="contactForm" />
 
                 <div>

@@ -128,7 +128,8 @@ const ContactForm: React.FC = () => {
     return (   
         <div id="Contact">
             <h2 className="contact-header">Contact Me</h2> 
-            <form name="contactForm" className="form" onSubmit={handleSubmit} method="POST" data-netlify="true">
+            <form name="contactForm" className="form" method="POST" data-netlify="true">
+                <input type="hidden" name="form-name" value="contactForm" />
 
                 <div>
                     <label htmlFor="firstName">First Name:</label>

@@ -70,7 +70,7 @@ const ContactForm: React.FC = () => {
         let formData = new FormData(e.currentTarget); // e.currentTarget refers to the form itself
     
         try {
-            let response: Response = await fetch("https://jayden-photography.netlify.app/", {
+            let response: Response = await fetch("/", {
                 method: "POST",
                 headers: { "Accept": "application/x-www-form-urlencoded" },
                 body: new URLSearchParams(formData as any).toString(),

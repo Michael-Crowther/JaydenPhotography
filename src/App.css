@@ -1,38 +1,961 @@
-.App {
+.body, html{
+  background-color: #222121;
+  height: 100%;
+}
+html.modal-open{
+  overflow: hidden;
+}
+
+
+/*Navbar Styling*/
+
+#Top{
+  padding: 10px;
+  padding-top: 50px;
+  margin: 0;
+  top: 0;
+  padding-bottom: 48px;
+  position: sticky;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.logo{
+  float: left;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  margin-left: 180px;
+  text-align: center;
+  position: relative;
+}
+
+#icon.visible{
+  display: block;
+}
+#icon.hidden{
+  display: none;
+}
+
+.icon{
+  width: 40px;
+  height: 40px;
+  float: right;
+  margin-right: 180px;
+  position: relative;
+  color: white;
+  display: none;
+}
+#mobileIcon{
+  margin-top: 40px;
+  width: 37px;
+  height: 37px;
+  position: relative;
+  color: white;
+}
+.icon:hover, #mobileIcon:hover{
+  cursor:pointer;
+  color: rgba(255, 108, 137, 0.816);
+}
+
+
+#myLinks{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  text-align: right;
+  font-size: 20px;
+  margin-right: 180px;
+}
+#myLinks.visible{
+  display: block;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-left: 60px;
+}
+
+nav ul li a {
+  display: block;
+  padding: 15px 10px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+nav ul li a:not(.stickyNavBarText):hover {/*Don't do while in sticky navbar*/
+  color: #fff; /* Set your desired text color */
+}
+
+nav ul li a:hover, #mobileLinks li a:hover {
+  border-bottom: 2px solid rgba(255, 108, 137, 0.816);
+  border-bottom-width: 5px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  padding-bottom: 2px;
+  box-sizing: border-box;
+}
+
+/*Mobile Navbar*/
+#mobileLinks{
+  position: fixed;
+  right: -800px; /* Adjust this value to match the width you desire */
+  top: 0;
+  width: 25%; /* You can adjust the width as needed */
+  height: 100%;
+  background: #010101f8; /* Background color */
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  transition: 0.5s; /* This will create the slide effect */
+  z-index: 1000;
+
+  list-style: none;
+  text-align: center;
+  font-size: 20px;
+}
+#mobileLinks li{
+  margin: 40px;
+  margin-top: 70px;
+}
+#mobileLinks li a{
+  color: white;
+  text-decoration: none;
+}
+#mobileLinks.open {
+  right: 0 !important;
+}
+
+.stickyTop{
+  background-color: rgba(255, 255, 255, 0.952);
+  animation: stickyFadeIn 0.3s ease-in;
+}
+.stickyFadeOut{
+  animation: stickyFadeOut 0.3s ease-out;
+}
+.stickyLogo, .stickyNavBarText{
+  color: black;
+}
+.hidden{
+  display: none !important;
+}
+
+
+/*Home Page Styling*/
+
+#Home{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 75vh;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+.homeHeader{
+  color:white;
+  font-size: 170px;
+
+  margin:0;
+
+  background-image: url(./images/background-text-image.jpg);
+  background-size: cover;
+  
+  background-position: center;
+  background-repeat: no-repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+
+  animation: fadeInHeader 1.3s ease-in;
+}
+
+.homeSubHeader{
+  color:white;
+  font-size: 55px;
+  animation: fadeInSubHeader 1.3s ease-in;
+}
+
+/*About Section Styling*/
+
+#About::before{
+  content: "";
+  display: block;
+  height: 250px;
+  margin-top: -250px;
+  visibility: hidden;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.about-parent{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 180px;
+  margin-bottom: 50px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.about-content{
+  width: 75%; 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.aboutHeader, .aboutParagraph{
+  text-align: center;
+  color: white;
+}
+.aboutParagraph{
+  width: 70%;
+  font-size: 25px;
+}
+.aboutHeader{
+  font-size: 50px;
+  margin: 0;
+}
+.about-image{
+  width: 14%;
+  height: auto;
+  border: 3px solid rgb(2, 2, 2);
+  border-radius: 10px;
+  position: relative;
+}
+
+
+/*Gallery Section Styling*/
+
+
+#Gallery{
+  background-color: rgba(255, 108, 137, 0.105);
+}
+
+#Gallery::before{
+  content: "";
+  display: block;
+  height: 150px;
+  margin-top: -150px;
+  background-color: #222121;
+  pointer-events: none;
+}
+
+.image-container {
+  position: relative;
+  width: auto;
+  height: 500px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-image {
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+  border: 3px solid rgb(2, 2, 2);
+  border-radius: 10px;
+}
+.gallery-image:hover{
+  opacity: 70%;
+  cursor: pointer;
+}
+
+.modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+.modal-content{
+  position: relative;
+  width: 70%;
+  max-width: 800px;  
+  background: rgb(255, 255, 255);
+  padding: 3px;
+  padding-bottom: 0px;
+  border: 3px solid rgb(2, 2, 2);
+  border-radius: 10px;
+  animation: stickyFadeIn 0.3s ease-in-out forwards;
+}
+.modal-content.portrait{
+  width: 25%;
+}
+.modal-content.hidden-modal-content{
+  visibility: hidden;
+}
+
+
+.close-icon{
+  position: absolute;
+  cursor: pointer;
+  color: white;
+  width: 30px;
+  height: 30px;
+  top: -30px;
+  right: -30px;
+}
+.close-icon:hover{
+  color: rgba(255, 108, 137, 0.816);
+}
+.modal-image{
+  width: 100%;
+  height: auto;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 3rem;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease; /* Smooth transition for all properties */
+}
+.arrow:hover{
+  color: rgba(255, 108, 137, 0.816);
+  transform: translateY(-50%) scale(1.2);
+}
+
+.left-arrow, .right-arrow{
+  position: relative;
+  height: 100%;
+  width: 40px;
+}
+.left-arrow-modal, .right-arrow-modal{
+  color: white;
+  position: absolute;
+}
+.left-arrow-modal{
+  left: -100px;
+}
+.right-arrow-modal{
+  right: -100px;
+}
+
+.left-arrow {
+  left: -20px;
+}
+
+.right-arrow {
+  right: -20px;
+}
+
+.loading {
+  border: 8px solid #f3f3f3;
+  /*border-top: 8px solid rgb(226, 130, 20);*/
+  border-top: 8px solid rgba(255, 108, 137, 0.816);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+  position: absolute;
+}
+
+
+/*Shop Section Styling*/
+
+#Shop::before{
+  content: "";
+  display: block;
+  height: 150px;
+  margin-top: -150px;
+  visibility: hidden;
+  /*background-color: #222121;*/
+  pointer-events: none;
+}
+
+.shop-content{
+  padding-bottom: 50px;
+  padding-top: 50px;
+
+  display: flex;
+  align-items: center;
+}
+
+.shop-description{
+  color: white;
+  width: 50%;
+  margin-left: 100px;
+  font-weight: normal;
+}
+
+.shop-link{
+  position: relative;
+  width: 15%;
+  height: 60px;
+  margin-left: 180px;
+  margin-top: 50px;
+  background-color: rgba(255, 108, 137, 0.816);
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 5px;
+  transform: translateY(-50%);
+  box-shadow: 3px 3px 5px black;
+  border: 2px solid rgba(255, 108, 137, 0.816);
+  transition: all 0.3s ease;
+  text-align: center;     
+}
+
+.shop-link:hover{
+  cursor: pointer;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.shop-link button {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+
+/*Contact Section Styling*/
+#Contact{
+  background-color: rgba(255, 108, 137, 0.105);
+}
+
+#Contact::before{
+  content: "";
+  display: block;
+  height: 150px;
+  margin-top: -150px;
+  background-color: #222121;
+  pointer-events: none;
+}
+
+.contact-header{
+  text-align: center;
+  padding-top: 10px;
+  color: rgb(255, 255, 255);
+}
+
+form{
+  max-width: 600px;
+  margin: 1rem auto;
+  padding: 1.6rem;
+  padding-right: 3.25rem;
+}
+
+form div{
+  margin-bottom: 1.5rem;
+  padding: 0.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: rgba(255, 108, 137, 0.816);
+  outline: none;
+}
+
+.button-parent{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button[type="submit"] {
+  background-color: rgba(255, 108, 137, 0.816);
+  color: #000000;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: rgba(255, 72, 109, 0.816); /* darker version of the button color */
+}
+
+
+.error-message{
+  color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+/*Contact Modal*/
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.792); /* semi-transparent black */
+  z-index: 9999; /* make sure it's on top */
+}
+
+.modal-contact {
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 10px;
+  width: 60%;
+  max-width: 500px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* shadow for a bit of depth */
+}
+
+.modal-contact p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.modal-contact button {
+  font-size: 16px;
+  padding: 6px 15px;
+  color: black;
+  background-color: rgba(255, 108, 137, 0.816);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-contact button:hover {
+  background-color: rgba(255, 72, 109, 0.816); /* darker version of the button color */
+}
+
+
+/*Animations*/
+
+@keyframes fadeInHeader{
+  from{
+    opacity: 0;
   }
-  to {
-    transform: rotate(360deg);
+
+  to{
+    opcaity: 100%;
   }
 }
+
+@keyframes fadeInSubHeader {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  50% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes stickyFadeIn{
+  from{
+    opacity: 0;
+  }
+  
+  to{
+    opcaity: 100%;
+  }
+}
+@keyframes stickyFadeOut{
+  from{
+    opcaity: 100%;
+    background-color: white;
+  }
+  
+  to{
+    opcaity: 0;
+    background-color: #222121;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+/*Media Queries*/
+
+@media (max-width: 1400px) {
+  nav {
+    overflow: hidden;
+    position: relative;
+  }
+  
+  #myLinks {
+    display: none;
+  }
+
+  nav ul{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  nav ul li{
+    width: 70px;
+    text-align: center;
+  }
+
+  .icon{
+    display:inline;
+  }
+
+  .shop-link{
+    font-size: 14px;
+    margin-left: 130px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .homeHeader{
+    font-size: 110px;
+  }
+  .homeSubHeader{
+    font-size: 40px;
+  }
+  .logo{
+    font-size: 35px;
+    margin-left: 110px;
+  }
+  .icon{
+    margin-right: 120px;
+  }
+  .aboutHeader{
+    font-size: 43px;
+  }
+  .aboutParagraph{
+    font-size: 25px;
+  }
+  .about-image{
+    width: 17%;
+  }
+  .gallery-image{
+    width: 50%;
+  }
+  .shop-link{
+    width: 20%;
+  }
+  
+}
+
+/*iPad Air*/
+@media (max-width: 821px) {
+  .aboutHeader{
+    font-size: 50px;
+  }
+  .about-image{
+    width: 30%;
+    margin-right: 100px;
+  }
+  .about-parent{
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+  .aboutParagraph{
+    font-size: 26px;
+    width: 100%;
+  }
+  .logo{
+    font-size: 45px;
+  }
+  .icon{
+    width: 50px;
+    height: 50px;
+  }
+  nav ul li a{
+    font-size: 26px;
+  }
+  .logo{
+    margin-left: 60px;
+  }
+  .icon{
+    margin-right: 80px;
+  }
+  
+  .modal-content.portrait{
+    width: 53%;
+  }
+  .shop-link{
+    margin-left: 80px;
+    width: 20%;
+  }
+  .modal-contact p {
+    font-size: 20px;
+  }
+  .modal-contact button {
+    padding: 10px 20px;
+  }
+  
+  .left-arrow-modal{
+    left: -65px;
+  }
+  .right-arrow-modal{
+    right: -65px;
+  }
+}
+
+/*iPad Mini*/
+@media (max-width: 769px) {
+  .aboutHeader{
+    font-size: 24px;
+  }
+  .aboutHeader{
+    font-size: 45px;
+  }
+  .logo{
+    margin-left: 60px;
+  }
+  .icon{
+    margin-right: 80px;
+  }
+}
+
+@media (max-width: 740px) {
+  .homeHeader{
+    font-size: 80px;
+  }
+  .homeSubHeader{
+    font-size: 30px;
+  }
+  .logo{
+    font-size: 25px;
+    margin-left: 90px;
+  }
+  .icon{
+    margin-right: 80px;
+    width: 30px;
+    height: 30px;
+  }
+  .aboutHeader{
+    font-size: 35px;
+  }
+  .aboutParagraph{
+    font-size: 20px;
+  }
+  .about-image{
+    margin-right: 40px;
+  }
+  nav ul li a{
+    font-size: 15px;
+  }
+  #mobileLinks{
+    width: 40%;
+  }
+  .left-arrow-modal{
+    left: -40px;
+  }
+  .right-arrow-modal{
+    right: -40px;
+  }
+  .right-arrow-modal, .left-arrow-modal{
+    width: 25px;
+    height: 25px;
+  }
+  .shop-content{
+    flex-direction: column;
+  }
+  #About::before{
+    height: 150px;
+    margin-top: -150px;
+  }
+  #Gallery::before{
+    height: 120px;
+    margin-top: -120px;
+  }
+  #Shop::before{
+    height: 120px;
+    margin-top: -120px;
+  }
+  #Contact::before{
+    height: 120px;
+    margin-top: -120px;
+  }
+  .shop-description{
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+  }
+  .shop-link{
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 70px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 512px) {
+  .homeHeader{
+    font-size: 60px;
+  }
+  .homeSubHeader{
+    font-size: 20px;
+  }
+  .logo{
+    font-size: 25px;
+    margin-left: 40px;
+  }
+  .icon{
+    margin-right: 40px;
+    width: 30px;
+    height: 30px;
+  }
+  .aboutHeader{
+    font-size: 26px;
+  }
+  .aboutParagraph{
+    font-size: 17px;
+  }
+  .about-parent{
+    flex-direction: column;
+  }
+  .about-content {
+    width: 100%;
+    margin: 0;
+  }
+  .about-image{
+    width: 70%;
+    margin: 0;
+    margin-bottom: 15px;
+  }
+  #myLinks{
+    margin-left: 50px;
+  }
+  
+  nav ul li a{
+    font-size: 15px;
+  }
+}
+
+/*iPhone XR*/
+@media (max-width: 415px) {
+  .homeSubHeader{
+    font-size: 25px;
+  }
+  .aboutHeader{
+    font-size: 24px;
+  }
+  .aboutParagraph{
+    font-size: 23px;
+  }
+  #myLinks{
+    margin-left: 20px;
+  }
+  .gallery-image{
+    height: 80%;
+    width: 60%;
+  }
+  .left-arrow, .right-arrow{
+    width: 30px;
+  }
+}
+
+/*iPhone 12 Pro*/
+@media (max-width: 391px) {
+  .aboutHeader{
+    font-size: 24px;
+  }
+  #myLinks{
+    margin-left: 10px;
+  }
+}
+
+/*iPhone SE*/
+@media (max-width: 376px) {
+  .homeHeader{
+    font-size: 45px;
+  }
+  .homeSubHeader{
+    font-size: 20px;
+  }
+  .logo{
+    font-size: 20px;
+    margin-left: 30px;
+  }
+  .icon{
+    margin-right: 30px;
+    width: 26px;
+    height: 26px;
+  }
+  .aboutHeader{
+    font-size: 24px;
+  }
+  .aboutParagraph{
+    font-size: 21px;
+  }
+  #myLinks{
+    margin-left: 10px;
+  }
+  nav ul li a{
+    font-size: 15px;
+  }
+}
+
+/*Samsung Galaxy S8+*/
+@media (max-width: 361px) {
+  .aboutHeader{
+    font-size: 24px;
+  }
+}
+
+
+/*Adding test comment*/
